@@ -5,6 +5,7 @@ const PopupModal = () => {
     const selectedItem = useSelector((state) => state.selectedItem.item);
     const isOpen = useSelector((state) => state.selectedItem.isOpen);
     const dispatch = useDispatch();
+    const selectedItemDate = new Date(selectedItem?.original_launch).toDateString();
   
     const closeModal = () => {
       dispatch(clearSelectedItem());
@@ -14,12 +15,13 @@ const PopupModal = () => {
       return null; // Don't render the modal if it's not open
     }
     return (
-        <dialog open={isOpen} className="fixed top-0 w-screen h-screen bg-slate-600 bg-opacity-50">
+        <dialog open={isOpen} className="fixed top-0 w-screen min-h-screen bg-slate-600 bg-opacity-50">
             <article className="bg-white rounded w-72 max-w-xs h-max mx-auto mt-10 p-4 grid">
               <h2 className="text-center text-lg font-semibold mb-4">Capsule Details</h2>
               <span className="text-sm pb-2">Capsule Serial: {selectedItem.capsule_serial}</span>
               <span className="text-sm pb-2">Capsule Id: {selectedItem.capsule_id}</span>
               <span className="text-sm pb-2">Capsule Status: {selectedItem.status}</span>
+              <span>Capsule Original Launch Date: {selectedItemDate}</span>
               {selectedItem.missions.length > 0 ? (
   <div>
     <h2 className="text-center text-lg font-medium">Missions</h2>

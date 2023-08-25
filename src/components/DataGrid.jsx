@@ -18,8 +18,8 @@ const DataGrid = () => {
 //   Display the current items
   const currentItems = capsules.slice(indexOfFirstItem, indexOfLastItem);
   
-  // Calculate the total number of pages
-  const totalPages = Math.ceil(capsules.length / itemsPerPage);
+  // Calculate the total number of pages, if the capsules length is empty return 1
+  const totalPages = capsules.length > 0 ? Math.ceil(capsules.length / itemsPerPage) : 1;
 
   
   const openCapsuleDetails = (item) => {
@@ -41,7 +41,7 @@ const DataGrid = () => {
       }
     };
 
-    fetchRocketsData(); // Call the function when the component mounts
+    fetchRocketsData();
   }, []);
 
   return (

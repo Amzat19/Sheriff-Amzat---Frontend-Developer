@@ -9,8 +9,8 @@ const Banner = () => {
                 <Menu />
             </header>
             <div className='pl-8'>
-                <h1 className='text-2xl text-white font-bold'>ROCKETS</h1>
-                <p className='text-white '>View and Access rockets data</p>
+                <h1 className='text-2xl text-white font-bold'>CAPSULES</h1>
+                <p className='text-white '>View capsules data</p>
             </div>
         </div>
     )

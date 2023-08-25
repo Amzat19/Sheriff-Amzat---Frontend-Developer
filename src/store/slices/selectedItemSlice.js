@@ -1,4 +1,3 @@
-// selectedItemSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const selectedItemSlice = createSlice({
