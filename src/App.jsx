@@ -1,4 +1,5 @@
 import Banner from "./components/Banner"
+import DataGrid from "./components/DataGrid"
 import SearchForm from "./components/SearchForm"
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <main>
       <Banner />
       <SearchForm />
+      <DataGrid />
     </main>
   )
 }
