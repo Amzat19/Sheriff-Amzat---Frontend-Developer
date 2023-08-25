@@ -13,6 +13,6 @@ const isDateMatch = (dateToCheck, dateFilter) => {
     dateToCheckDate.getMonth() === dateFilterDate.getMonth() &&
     dateToCheckDate.getFullYear() === dateFilterDate.getFullYear()
   );
-}
+};
 
 export default isDateMatch;

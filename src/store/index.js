@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import capsuleReducer from '../store/slices/capsuleSlice'
+import capsuleReducer from '../store/slices/capsuleSlice';
 import selectedItemSlice from './slices/selectedItemSlice';
 
 const store = configureStore({

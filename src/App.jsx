@@ -1,10 +1,9 @@
-import Banner from "./components/Banner"
-import DataGrid from "./components/DataGrid"
-import PopupModal from "./components/PopupModal"
-import SearchForm from "./components/SearchForm"
+import Banner from './components/Banner';
+import DataGrid from './components/DataGrid';
+import PopupModal from './components/PopupModal';
+import SearchForm from './components/SearchForm';
 
 const App = () => {
-
   return (
     <main>
       <Banner />
@@ -12,7 +11,7 @@ const App = () => {
       <DataGrid />
       <PopupModal />
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;
