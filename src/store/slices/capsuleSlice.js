@@ -7,7 +7,7 @@ const capsulesSlice = createSlice({
     data: [],
     loading: true,
     currentPage: 1,
-    itemsPerPage: 5,
+    itemsPerPage: 10,
   },
   reducers: {
     setCapsules: (state, action) => {

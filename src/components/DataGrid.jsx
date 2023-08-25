@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCapsules, setCurrentPage } from '../store/slices/capsuleSlice';
+import { setSelectedItem } from '../store/slices/selectedItemSlice';
 
 const DataGrid = () => {
     const capsules = useSelector((state) => state.capsules.data);
     const loading = useSelector((state) => state.capsules.loading);
     const currentPage = useSelector((state) => state.capsules.currentPage);
     const itemsPerPage = useSelector((state) => state.capsules.itemsPerPage);
-    
+
     const dispatch = useDispatch();
 
  // Calculate the index range for the current page
@@ -19,6 +20,11 @@ const DataGrid = () => {
   
   // Calculate the total number of pages
   const totalPages = Math.ceil(capsules.length / itemsPerPage);
+
+  
+  const openCapsuleDetails = (item) => {
+    dispatch(setSelectedItem(item));
+  };
 
   useEffect(() => {
     // Define an async function to fetch the data
@@ -47,7 +53,7 @@ const DataGrid = () => {
         <div>
 <ul className='flex flex-wrap justify-between gap-y-4'>
           {currentItems.map((capsule) => (
-            <li key={capsule.capsule_serial} className='max-h-80 w-72 rounded-md shadow-md px-4 grid'>
+            <li key={capsule.capsule_serial} className='max-h-80 w-72 rounded-md shadow-md px-4 grid cursor-pointer' onClick={() => openCapsuleDetails(capsule)}>
               <h3 className='uppercase font-bold text-2xl text-center py-2'>{capsule.type}</h3>
               <span className='text-base font-medium py-2'>{capsule.capsule_serial}</span>
               <p className='text-base font-medium py-2'>{capsule.details || 'No details found'}</p>

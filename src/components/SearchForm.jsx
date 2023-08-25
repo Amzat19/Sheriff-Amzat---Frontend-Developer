@@ -1,4 +1,5 @@
 const SearchForm = () => {
+    
     return (
         <section className="p-8">
             <h2 className="mb-4 font-semibold text-lg">Search for Rockets</h2>

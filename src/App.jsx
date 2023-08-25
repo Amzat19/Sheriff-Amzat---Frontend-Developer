@@ -1,5 +1,6 @@
 import Banner from "./components/Banner"
 import DataGrid from "./components/DataGrid"
+import PopupModal from "./components/PopupModal"
 import SearchForm from "./components/SearchForm"
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
       <Banner />
       <SearchForm />
       <DataGrid />
+      <PopupModal />
     </main>
   )
 }
