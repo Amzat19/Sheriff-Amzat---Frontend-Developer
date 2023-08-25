@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCapsules, setCurrentPage } from '../store/slices/capsuleSlice';
 
 const DataGrid = () => {
-  const [capsules, setCapsules] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+    const capsules = useSelector((state) => state.capsules.data);
+    const loading = useSelector((state) => state.capsules.loading);
+    const currentPage = useSelector((state) => state.capsules.currentPage);
+    const itemsPerPage = useSelector((state) => state.capsules.itemsPerPage);
+    
+    const dispatch = useDispatch();
 
  // Calculate the index range for the current page
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -25,8 +29,7 @@ const DataGrid = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setCapsules(data); // Update the state with the fetched data
-        setLoading(false); // Set loading to false once data is loaded
+        dispatch(setCapsules(data)); // Dispatch the action to set capsules in Redux state
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -58,7 +61,7 @@ const DataGrid = () => {
          <div className='mt-4 flex items-center justify-between py-4'>
          {/* Pagination controls */}
          <button
-           onClick={() => setCurrentPage(currentPage - 1)}
+           onClick={() => dispatch(setCurrentPage(currentPage - 1))}
            disabled={currentPage === 1}
            className='mr-2 px-4 py-2 bg-blue-500 text-white rounded'
          >
@@ -68,7 +71,7 @@ const DataGrid = () => {
               Page {currentPage} of {totalPages}
             </p>
          <button
-           onClick={() => setCurrentPage(currentPage + 1)}
+           onClick={() => dispatch(setCurrentPage(currentPage + 1))}
            disabled={indexOfLastItem >= capsules.length}
            className='px-4 py-2 bg-blue-500 text-white rounded'
          >
