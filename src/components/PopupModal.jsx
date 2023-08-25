@@ -5,7 +5,11 @@ const PopupModal = () => {
   const selectedItem = useSelector((state) => state.selectedItem.item);
   const isOpen = useSelector((state) => state.selectedItem.isOpen);
   const dispatch = useDispatch();
-  const selectedItemDate = new Date(selectedItem?.original_launch).toDateString();
+
+  // Format the original launch date if available
+  const formattedOriginalLaunch = selectedItem?.original_launch
+    ? new Date(selectedItem.original_launch).toDateString()
+    : 'Not available';
 
   const closeModal = () => {
     dispatch(clearSelectedItem());
@@ -21,7 +25,7 @@ const PopupModal = () => {
         <span className='text-sm pb-2'>Capsule Serial: {selectedItem.capsule_serial}</span>
         <span className='text-sm pb-2'>Capsule Id: {selectedItem.capsule_id}</span>
         <span className='text-sm pb-2'>Capsule Status: {selectedItem.status}</span>
-        <span>Capsule Original Launch Date: {selectedItemDate}</span>
+        <span>Capsule Original Launch Date: {formattedOriginalLaunch}</span>
         {selectedItem.missions.length > 0 ? (
           <div>
             <h2 className='text-center text-lg font-medium'>Missions</h2>

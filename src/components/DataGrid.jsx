@@ -83,7 +83,8 @@ const DataGrid = () => {
             <button
               onClick={() => dispatch(setCurrentPage(currentPage - 1))}
               disabled={currentPage === 1}
-              className='mr-2 px-4 py-2 bg-blue-500 text-white rounded'
+              className='mr-2 px-4 py-2 bg-blue-500 text-white rounded disabled:bg-opacity-50'
+              aria-label='Previous Page'
             >
               Previous
             </button>
@@ -93,7 +94,8 @@ const DataGrid = () => {
             <button
               onClick={() => dispatch(setCurrentPage(currentPage + 1))}
               disabled={indexOfLastItem >= capsules.length}
-              className='px-4 py-2 bg-blue-500 text-white rounded'
+              className='px-4 py-2 bg-blue-500 text-white rounded disabled:bg-opacity-50'
+              aria-label='Next Page'
             >
               Next
             </button>
