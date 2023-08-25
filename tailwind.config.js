@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'banner': "url('/spacex-banner.png')",
+      }
+    },
   },
   plugins: [],
 }
