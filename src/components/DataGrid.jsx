@@ -42,7 +42,7 @@ const DataGrid = () => {
         const data = await response.json();
         dispatch(setCapsules(data)); // Dispatch the action to set capsules in Redux state
       } catch (error) {
-        console.error('Error fetching data:', error);
+        throw new Error('Error fetching data:', error);
       }
     };
 
