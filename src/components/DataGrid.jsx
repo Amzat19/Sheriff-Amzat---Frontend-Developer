@@ -57,10 +57,10 @@ const DataGrid = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <ul className='flex flex-wrap justify-between gap-y-4'>
+          <div className='flex flex-wrap justify-between gap-y-4'>
             {currentItems.map((capsule) => (
-              <li
-                role='menuitem'
+              <article
+                role='presentation'
                 key={capsule.capsule_serial}
                 className='max-h-80 w-72 rounded-md shadow-md px-4 grid cursor-pointer'
                 onClick={() => openCapsuleDetails(capsule)}
@@ -75,15 +75,15 @@ const DataGrid = () => {
                   <span>Status: {capsule.status}</span>
                   <span>Landings: {capsule.landings}</span>
                 </div>
-              </li>
+              </article>
             ))}
-          </ul>
+          </div>
           <div className='mt-4 flex items-center justify-between py-4'>
             {/* Pagination controls */}
             <button
               onClick={() => dispatch(setCurrentPage(currentPage - 1))}
               disabled={currentPage === 1}
-              className='mr-2 px-4 py-2 bg-blue-500 text-white rounded disabled:bg-opacity-50'
+              className='mr-2 px-4 py-2 bg-slate-900 text-white rounded disabled:bg-opacity-50'
               aria-label='Previous Page'
             >
               Previous
@@ -94,7 +94,7 @@ const DataGrid = () => {
             <button
               onClick={() => dispatch(setCurrentPage(currentPage + 1))}
               disabled={indexOfLastItem >= capsules.length}
-              className='px-4 py-2 bg-blue-500 text-white rounded disabled:bg-opacity-50'
+              className='px-4 py-2 bg-slate-900 text-white rounded disabled:bg-opacity-50'
               aria-label='Next Page'
             >
               Next
