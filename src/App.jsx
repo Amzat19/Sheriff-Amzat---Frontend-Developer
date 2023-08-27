@@ -5,7 +5,7 @@ import SearchForm from './components/SearchForm';
 
 const App = () => {
   return (
-    <main>
+    <main className='relative'>
       <Banner />
       <SearchForm />
       <DataGrid />
