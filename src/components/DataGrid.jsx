@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCapsules, setCurrentPage } from '../store/slices/capsuleSlice';
+import { setCapsules, setCurrentPage, setError } from '../store/slices/capsuleSlice';
 import { setSelectedItem } from '../store/slices/selectedItemSlice';
 
 const DataGrid = () => {
   const capsules = useSelector((state) => state.capsules.data);
   const loading = useSelector((state) => state.capsules.loading);
+  const error = useSelector((state) => state.capsules.error);
   const currentPage = useSelector((state) => state.capsules.currentPage);
   const itemsPerPage = useSelector((state) => state.capsules.itemsPerPage);
 
@@ -42,7 +43,7 @@ const DataGrid = () => {
         const data = await response.json();
         dispatch(setCapsules(data)); // Dispatch the action to set capsules in Redux state
       } catch (error) {
-        throw new Error('Error fetching data:', error);
+        dispatch(setError(error));
       }
     };
 
@@ -55,6 +56,8 @@ const DataGrid = () => {
       <h2 className='py-8 font-bold text-2xl'>All Capsules</h2>
       {loading ? (
         <p>Loading...</p>
+      ) : error ? (
+        <p>Error: {error}</p> // Display error message
       ) : (
         <div>
           <div className='flex flex-wrap justify-between gap-y-4'>
@@ -85,10 +88,11 @@ const DataGrid = () => {
               disabled={currentPage === 1}
               className='mr-2 px-4 py-2 bg-slate-900 text-white rounded disabled:bg-opacity-50'
               aria-label='Previous Page'
+              name='Previous Page'
             >
               Previous
             </button>
-            <p className='text-center'>
+            <p className='text-center' data-testid='page-range'>
               Page {currentPage} of {totalPages}
             </p>
             <button
@@ -96,6 +100,7 @@ const DataGrid = () => {
               disabled={indexOfLastItem >= capsules.length}
               className='px-4 py-2 bg-slate-900 text-white rounded disabled:bg-opacity-50'
               aria-label='Next Page'
+              name='Next Page'
             >
               Next
             </button>

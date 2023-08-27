@@ -7,6 +7,7 @@ const capsulesSlice = createSlice({
     data: [], // This stores the filtered data
     unfilteredData: [], // This stores the original, unfiltered data
     loading: true,
+    error: null,
     currentPage: 1,
     itemsPerPage: 5,
   },
@@ -18,6 +19,9 @@ const capsulesSlice = createSlice({
     },
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
     },
     filterCapsules: (state, action) => {
       const { status, original_launch, type } = action.payload;
@@ -37,5 +41,6 @@ const capsulesSlice = createSlice({
   },
 });
 
-export const { setCapsules, setCurrentPage, filterCapsules, clearFilters } = capsulesSlice.actions;
+export const { setCapsules, setCurrentPage, setError, filterCapsules, clearFilters } =
+  capsulesSlice.actions;
 export default capsulesSlice.reducer;

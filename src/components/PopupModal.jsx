@@ -48,7 +48,9 @@ const PopupModal = () => {
         <span className='text-sm pb-2'>Capsule Reuse Count: {selectedItem.reuse_count}</span>
         <button
           className='px-4 py-2 w-24 mt-4 h-10 bg-blue-500 text-white rounded'
-          onClick={closeModal}
+          onClick={() => closeModal()}
+          name='Close Button'
+          aria-label='Close Button'
         >
           Close
         </button>
