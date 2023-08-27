@@ -26,6 +26,8 @@ const capsulesSlice = createSlice({
     filterCapsules: (state, action) => {
       const { status, original_launch, type } = action.payload;
 
+      state.currentPage = 1;
+
       state.data = state.unfilteredData.filter((capsule) => {
         // Check if the payload items matches the capsule items
         const matchesStatus = !status || capsule.status.toLowerCase() === status.toLowerCase();
