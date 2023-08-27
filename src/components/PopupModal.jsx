@@ -21,7 +21,7 @@ const PopupModal = () => {
   return (
     <dialog
       open={isOpen}
-      className='absolute top-0 bottom-0 w-screen min-h-full bg-slate-600 bg-opacity-50 py-48 z-10'
+      className='absolute top-0 bottom-0 w-screen h-full bg-slate-600 bg-opacity-50 py-48 z-10'
     >
       <article className='bg-white rounded w-72 max-w-xs h-max mx-auto mt-10 p-4 grid'>
         <h2 className='text-center text-lg font-semibold mb-4'>Capsule Details</h2>
