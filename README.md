@@ -38,6 +38,12 @@ The app should now be running locally and can be accessed at `http://localhost:5
 
 While test cases were not mandatory, I have included a comprehensive set of Jest unit tests to ensure the functionality and reliability of key components and features.
 
+## Video Demonstration
+
+I've created a video demonstrating the functionality of the app. Please watch the video to see the app in action:
+
+[![Watch the video](https://www.loom.com/share/a15a4ebb9a7b483685a6061c32e29abc?sid=9c50a915-eccf-441f-be84-69ffe3838782)](https://www.loom.com/share/a15a4ebb9a7b483685a6061c32e29abc?sid=9c50a915-eccf-441f-be84-69ffe3838782)
+
 ## Conclusion
 
 Thank you for considering my submission for the SpaceX Data React App assessment. I thoroughly enjoyed working on this project and applying my skills to create a functional and visually appealing app. I'm excited about the opportunity to contribute to your team and further enhance this project.
